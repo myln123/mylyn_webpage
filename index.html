@@ -18,11 +18,26 @@
 
     body{
       font-family:"Segoe UI", Arial, sans-serif;
-      background:#f9f4f2;
       color:#2f2a28;
       line-height:1.7;
       overflow-x:hidden;
       animation:pageFadeIn .8s ease;
+
+      /* GIF BACKGROUND */
+      background:url("gif.gif") center/cover no-repeat fixed;
+      position:relative;
+    }
+
+    /* WHITE OVERLAY FOR READABILITY */
+    body::before{
+      content:"";
+      position:fixed;
+      top:0;
+      left:0;
+      width:100%;
+      height:100%;
+      background:rgba(255,255,255,0.85);
+      z-index:-1;
     }
 
     a{
@@ -96,16 +111,6 @@
       align-items:center;
       min-height:85vh;
       animation:contentFadeIn 1s ease;
-    }
-
-    .hero-text small{
-      display:inline-block;
-      margin-bottom:16px;
-      color:#b07d74;
-      font-weight:600;
-      letter-spacing:2px;
-      text-transform:uppercase;
-      font-size:13px;
     }
 
     .hero-text h1{
@@ -203,13 +208,6 @@
       margin-bottom:10px;
     }
 
-    .section-title p{
-      color:#7b6d67;
-      max-width:760px;
-      margin:auto;
-      font-size:17px;
-    }
-
     .about-card,
     .concept-paper-box,
     .contact-card{
@@ -218,15 +216,6 @@
       padding:30px;
       box-shadow:0 12px 35px rgba(80,58,52,.08);
       border:1px solid #f0e6e0;
-    }
-
-    .about-card p,
-    .concept-paper-box p,
-    .contact-card p{
-      color:#6d625d;
-      font-size:17px;
-      margin-bottom:14px;
-      text-align:justify;
     }
 
     .outputs-grid{
@@ -261,18 +250,6 @@
       text-align:center;
     }
 
-    .concept-paper-box h3{
-      font-size:24px;
-      margin:24px 0 12px;
-      font-family:Georgia, "Times New Roman", serif;
-      font-weight:600;
-      color:#2f2a28;
-    }
-
-    .concept-paper-box h3:first-child{
-      margin-top:0;
-    }
-
     .paper-main-title{
       text-align:center;
       font-size:30px;
@@ -281,24 +258,6 @@
       font-family:Georgia, "Times New Roman", serif;
       font-weight:600;
       color:#2f2a28;
-    }
-
-    .concept-paper-box ul{
-      padding-left:22px;
-      margin:10px 0 18px;
-      color:#6d625d;
-    }
-
-    .concept-paper-box li{
-      margin-bottom:8px;
-    }
-
-    .contact-card{
-      text-align:center;
-    }
-
-    .contact-card p{
-      text-align:center;
     }
 
     .footer{
@@ -325,87 +284,28 @@
         transform:translateY(0);
       }
     }
-
-    @media (max-width:1024px){
-      .hero{
-        grid-template-columns:1fr;
-        text-align:center;
-      }
-
-      .hero-text p{
-        margin-left:auto;
-        margin-right:auto;
-      }
-
-      .floating-tag{
-        left:50%;
-        transform:translateX(-50%);
-        bottom:18px;
-      }
-
-      .outputs-grid{
-        grid-template-columns:repeat(2, 1fr);
-      }
-    }
-
-    @media (max-width:768px){
-      .hero{
-        padding:50px 20px 70px;
-      }
-
-      .hero-text h1{
-        font-size:42px;
-      }
-
-      .hero-text .script{
-        font-size:34px;
-      }
-
-      .hero-text p{
-        font-size:17px;
-      }
-
-      .image-card img{
-        height:420px;
-      }
-
-      .section-title h2{
-        font-size:32px;
-      }
-
-      .outputs-grid{
-        grid-template-columns:1fr;
-      }
-
-      .output-card img{
-        height:360px;
-      }
-
-      .paper-main-title{
-        font-size:24px;
-      }
-    }
   </style>
 </head>
+
 <body>
 
-  <div class="top-bar">
-    Welcome to Mylyn Jane Legarte's webpage ✨
-  </div>
+<div class="top-bar">
+Welcome to Mylyn Jane Legarte's webpage ✨
+</div>
 
-  <nav class="navbar">
-    <div class="nav-container">
-      <div class="brand">MYLYN</div>
+<nav class="navbar">
+<div class="nav-container">
+<div class="brand">MYLYN</div>
 
-      <div class="nav-links">
-        <a href="#home">Home</a>
-        <a href="#about">About Me</a>
-        <a href="#outputs">Outputs</a>
-        <a href="#concept-paper">Concept Paper</a>
-        <a href="#contact">Contact</a>
-      </div>
-    </div>
-  </nav>
+<div class="nav-links">
+<a href="#home">Home</a>
+<a href="#about">About Me</a>
+<a href="#outputs">Outputs</a>
+<a href="#concept-paper">Concept Paper</a>
+<a href="#contact">Contact</a>
+</div>
+</div>
+</nav>
 
   <section class="hero" id="home">
     <div class="hero-text">
