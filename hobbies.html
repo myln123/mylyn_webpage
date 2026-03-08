@@ -4,48 +4,120 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Mylyn | Hobbies</title>
+
   <style>
-    *{margin:0;padding:0;box-sizing:border-box;}
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
+
+    html{
+      perspective:1400px;
+    }
+
     body{
       font-family:"Segoe UI", Arial, sans-serif;
       background:#f9f4f2;
       color:#2f2a28;
       line-height:1.7;
+      transform-origin:left center;
+      transition:transform .7s ease, opacity .7s ease;
     }
-    a{text-decoration:none;color:inherit;}
-    .top-bar{background:#2f2a28;color:#fff;text-align:center;font-size:13px;padding:8px 12px;}
-    .navbar{background:#fff;border-bottom:1px solid #ece4df;position:sticky;top:0;z-index:1000;}
+
+    body.page-turn{
+      transform:rotateY(-75deg);
+      opacity:0;
+    }
+
+    a{
+      text-decoration:none;
+      color:inherit;
+    }
+
+    .top-bar{
+      background:#2f2a28;
+      color:#fff;
+      text-align:center;
+      font-size:13px;
+      padding:8px 12px;
+    }
+
+    .navbar{
+      background:#fff;
+      border-bottom:1px solid #ece4df;
+      position:sticky;
+      top:0;
+      z-index:1000;
+    }
+
     .nav-container{
-      max-width:1200px;margin:auto;padding:18px 24px;
-      display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;
+      max-width:1200px;
+      margin:auto;
+      padding:18px 24px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:20px;
+      flex-wrap:wrap;
     }
-    .brand{font-size:24px;font-weight:700;letter-spacing:2px;}
-    .nav-links{display:flex;gap:24px;flex-wrap:wrap;}
-    .nav-links a{font-size:14px;color:#6f625d;}
-    .nav-links a:hover,.nav-links a.active{color:#d77d8e;font-weight:600;}
+
+    .brand{
+      font-size:24px;
+      font-weight:700;
+      letter-spacing:2px;
+    }
+
+    .nav-links{
+      display:flex;
+      gap:24px;
+      flex-wrap:wrap;
+    }
+
+    .nav-links a{
+      font-size:14px;
+      color:#6f625d;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active{
+      color:#d77d8e;
+      font-weight:600;
+    }
+
     .page{
       max-width:1100px;
       margin:auto;
       padding:70px 24px 80px;
     }
-    .page-title{text-align:center;margin-bottom:40px;}
+
+    .page-title{
+      text-align:center;
+      margin-bottom:40px;
+      animation:fadeUp .8s ease;
+    }
+
     .page-title h1{
       font-size:50px;
       font-family:Georgia, "Times New Roman", serif;
       font-weight:500;
       margin-bottom:12px;
     }
+
     .page-title p{
       color:#7b6d67;
       font-size:18px;
       max-width:700px;
       margin:auto;
     }
+
     .grid{
       display:grid;
       grid-template-columns:repeat(2,1fr);
       gap:24px;
+      animation:fadeUp 1s ease;
     }
+
     .card{
       background:#fff;
       border-radius:24px;
@@ -54,28 +126,55 @@
       border:1px solid #f0e6e0;
       transition:.3s ease;
     }
-    .card:hover{transform:translateY(-6px);}
+
+    .card:hover{
+      transform:translateY(-6px);
+    }
+
     .card h3{
       font-size:26px;
       margin-bottom:14px;
       font-family:Georgia, "Times New Roman", serif;
       font-weight:500;
     }
+
     .card p{
       color:#6d625d;
       font-size:17px;
     }
+
     .footer{
-      background:#2f2a28;color:#f4e9e5;
-      text-align:center;padding:26px 20px;font-size:14px;
+      background:#2f2a28;
+      color:#f4e9e5;
+      text-align:center;
+      padding:26px 20px;
+      font-size:14px;
     }
+
+    @keyframes fadeUp{
+      from{
+        opacity:0;
+        transform:translateY(30px);
+      }
+      to{
+        opacity:1;
+        transform:translateY(0);
+      }
+    }
+
     @media (max-width:768px){
-      .grid{grid-template-columns:1fr;}
-      .page-title h1{font-size:40px;}
+      .grid{
+        grid-template-columns:1fr;
+      }
+
+      .page-title h1{
+        font-size:40px;
+      }
     }
   </style>
 </head>
 <body>
+
   <div class="top-bar">Welcome to Mylyn's personal webpage ✨</div>
 
   <nav class="navbar">
@@ -135,5 +234,23 @@
   <footer class="footer">
     © 2026 Mylyn's Webpage
   </footer>
+
+  <script>
+    document.querySelectorAll("a").forEach(link => {
+      link.addEventListener("click", function(e) {
+        const target = this.getAttribute("href");
+
+        if (target && target.includes(".html")) {
+          e.preventDefault();
+          document.body.classList.add("page-turn");
+
+          setTimeout(() => {
+            window.location.href = target;
+          }, 700);
+        }
+      });
+    });
+  </script>
+
 </body>
 </html>
