@@ -3,85 +3,178 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Mylyn | Concept Paper</title>
+  <title>Mylyn | Hobbies</title>
+
   <style>
-    *{margin:0;padding:0;box-sizing:border-box;}
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
+
+    html{
+      perspective:1400px;
+    }
+
     body{
       font-family:"Segoe UI", Arial, sans-serif;
       background:#f9f4f2;
       color:#2f2a28;
-      line-height:1.8;
+      line-height:1.7;
+      transform-origin:left center;
+      transition:transform .7s ease, opacity .7s ease;
     }
-    a{text-decoration:none;color:inherit;}
-    .top-bar{background:#2f2a28;color:#fff;text-align:center;font-size:13px;padding:8px 12px;}
-    .navbar{background:#fff;border-bottom:1px solid #ece4df;position:sticky;top:0;z-index:1000;}
+
+    body.page-turn{
+      transform:rotateY(-75deg);
+      opacity:0;
+    }
+
+    a{
+      text-decoration:none;
+      color:inherit;
+    }
+
+    .top-bar{
+      background:#2f2a28;
+      color:#fff;
+      text-align:center;
+      font-size:13px;
+      padding:8px 12px;
+    }
+
+    .navbar{
+      background:#fff;
+      border-bottom:1px solid #ece4df;
+      position:sticky;
+      top:0;
+      z-index:1000;
+    }
+
     .nav-container{
-      max-width:1200px;margin:auto;padding:18px 24px;
-      display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;
+      max-width:1200px;
+      margin:auto;
+      padding:18px 24px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:20px;
+      flex-wrap:wrap;
     }
-    .brand{font-size:24px;font-weight:700;letter-spacing:2px;}
-    .nav-links{display:flex;gap:24px;flex-wrap:wrap;}
-    .nav-links a{font-size:14px;color:#6f625d;}
-    .nav-links a:hover,.nav-links a.active{color:#d77d8e;font-weight:600;}
+
+    .brand{
+      font-size:24px;
+      font-weight:700;
+      letter-spacing:2px;
+    }
+
+    .nav-links{
+      display:flex;
+      gap:24px;
+      flex-wrap:wrap;
+    }
+
+    .nav-links a{
+      font-size:14px;
+      color:#6f625d;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active{
+      color:#d77d8e;
+      font-weight:600;
+    }
+
     .page{
-      max-width:1000px;
+      max-width:1100px;
       margin:auto;
       padding:70px 24px 80px;
     }
+
     .page-title{
       text-align:center;
-      margin-bottom:32px;
-    }
-    .page-title h1{
-      font-size:44px;
-      line-height:1.3;
-      font-family:Georgia, "Times New Roman", serif;
-      font-weight:600;
-      margin-bottom:12px;
-    }
-    .paper{
-      background:#fff;
-      border-radius:28px;
-      padding:34px;
-      box-shadow:0 12px 35px rgba(80,58,52,.08);
-      border:1px solid #f0e6e0;
+      margin-bottom:40px;
       animation:fadeUp .8s ease;
     }
-    .paper h2{
-      font-size:24px;
-      margin:24px 0 12px;
+
+    .page-title h1{
+      font-size:50px;
       font-family:Georgia, "Times New Roman", serif;
-      font-weight:600;
+      font-weight:500;
+      margin-bottom:12px;
     }
-    .paper p{
+
+    .page-title p{
+      color:#7b6d67;
+      font-size:18px;
+      max-width:700px;
+      margin:auto;
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:24px;
+      animation:fadeUp 1s ease;
+    }
+
+    .card{
+      background:#fff;
+      border-radius:24px;
+      padding:28px;
+      box-shadow:0 12px 35px rgba(80,58,52,.08);
+      border:1px solid #f0e6e0;
+      transition:.3s ease;
+    }
+
+    .card:hover{
+      transform:translateY(-6px);
+    }
+
+    .card h3{
+      font-size:26px;
+      margin-bottom:14px;
+      font-family:Georgia, "Times New Roman", serif;
+      font-weight:500;
+    }
+
+    .card p{
       color:#6d625d;
       font-size:17px;
-      margin-bottom:16px;
-      text-align:justify;
     }
-    .paper ul{
-      padding-left:24px;
-      color:#6d625d;
-      margin-bottom:18px;
-    }
-    .paper li{
-      margin-bottom:8px;
-    }
+
     .footer{
-      background:#2f2a28;color:#f4e9e5;
-      text-align:center;padding:26px 20px;font-size:14px;
+      background:#2f2a28;
+      color:#f4e9e5;
+      text-align:center;
+      padding:26px 20px;
+      font-size:14px;
     }
+
     @keyframes fadeUp{
-      from{opacity:0;transform:translateY(30px);}
-      to{opacity:1;transform:translateY(0);}
+      from{
+        opacity:0;
+        transform:translateY(30px);
+      }
+      to{
+        opacity:1;
+        transform:translateY(0);
+      }
     }
+
     @media (max-width:768px){
-      .page-title h1{font-size:32px;}
-      .paper{padding:24px;}
+      .grid{
+        grid-template-columns:1fr;
+      }
+
+      .page-title h1{
+        font-size:40px;
+      }
     }
   </style>
 </head>
 <body>
+
   <div class="top-bar">Welcome to Mylyn's personal webpage ✨</div>
 
   <nav class="navbar">
@@ -90,8 +183,8 @@
       <div class="nav-links">
         <a href="index.html">Home</a>
         <a href="about.html">About Me</a>
-        <a href="hobbies.html">Hobbies</a>
-        <a href="concept-paper.html" class="active">Concept Paper</a>
+        <a href="hobbies.html" class="active">Hobbies</a>
+        <a href="concept-paper.html">Concept Paper</a>
         <a href="contact.html">Contact</a>
       </div>
     </div>
@@ -99,64 +192,65 @@
 
   <section class="page">
     <div class="page-title">
-      <h1>EFFECTIVENESS OF COTTON IN WATER FILTER FOR IMPROVING TAPWATER QUALITY</h1>
+      <h1>My Hobbies</h1>
+      <p>These are some of the things I enjoy and love doing.</p>
     </div>
 
-    <div class="paper">
-      <h2>INTRODUCTION</h2>
-      <p>
-        Access to safe and clean drinking water remains a major global concern, as millions of people still lack reliable access to properly treated water. According to the World Health Organization, unsafe water contributes significantly to the spread of waterborne diseases such as cholera, dysentery, and typhoid. Even in areas with developed water systems, tap water may still contain residual contaminants due to aging pipelines, environmental pollution, and inadequate treatment processes. These issues highlight the continuous need for affordable and effective household water treatment methods.
-      </p>
-      <p>
-        In response to this concern, the present study focuses on exploring cotton as a potential filtration material for improving tap water quality. While commercial filters often use advanced materials like activated carbon, ceramics, and membrane systems, these options can be costly for some households. Cotton, being widely available and affordable, may offer a practical alternative. This research investigates whether the cotton in water filter can improve tap water quality by measuring changes in pH level and total dissolved solids (TDS) before and after filtration.
-      </p>
+    <div class="grid">
+      <div class="card">
+        <h3>🎧 Listening to Music</h3>
+        <p>
+          I enjoy listening to music because it helps me relax, feel inspired,
+          and enjoy the moment.
+        </p>
+      </div>
 
-      <h2>PURPOSE OF THE STUDY</h2>
-      <p>
-        The primary purpose of this study is to determine the effectiveness of cotton as a filtration medium in improving the quality of tap water. Specifically, it aims to measure the pH level and total dissolved solids (TDS) of tap water before and after passing through different amounts of cotton (20 g and 40 g). Through this comparison, the study seeks to identify whether cotton can significantly enhance water quality.
-      </p>
-      <p>
-        Additionally, the research intends to contribute to the broader goal of promoting accessible and low-cost water treatment solutions. This aligns with United Nations Sustainable Development Goal 6 (Clean Water and Sanitation), which emphasizes ensuring availability and sustainable management of water for all. On a national level, the study also supports the objectives of Republic Act No. 9275, which promotes the protection and preservation of water quality in the Philippines. By evaluating a simple and affordable material like cotton, the study aims to provide practical knowledge that households and communities can apply.
-      </p>
+      <div class="card">
+        <h3>🎬 Watching Movies</h3>
+        <p>
+          Watching movies is one of my favorite hobbies because it is entertaining
+          and helps me explore different stories and ideas.
+        </p>
+      </div>
 
-      <h2>DESCRIPTION</h2>
-      <p>
-        The project involves designing and constructing a simple cotton-based water filter using 100% pure cotton as the primary filtering material. The experiment will collect tap water samples from Malbog, Alegria, Cebu, and test their pH level and TDS before filtration. Afterward, the water will be filtered using two different amounts of cotton (20 grams and 40 grams), and the same parameters will be measured again for comparison.
-      </p>
-      <p>
-        The experimental design follows a quantitative approach, focusing on measurable data to determine the effectiveness of the cotton filter. The independent variable in the study is the amount of cotton used, while the dependent variables are the pH level and total dissolved solids of the tap water. The results will be analyzed to determine if there is a significant difference between pre-filtration and post-filtration measurements. This structured approach ensures that conclusions are based on objective data rather than assumptions.
-      </p>
+      <div class="card">
+        <h3>💻 Learning Technology</h3>
+        <p>
+          I like learning about technology because it helps me discover new skills,
+          tools, and ideas that are useful for school and the future.
+        </p>
+      </div>
 
-      <h2>SUPPORT</h2>
-      <p>
-        To successfully conduct this study, several materials and tools are required. These include 100% pure cotton, plastic bottles or containers for the filter structure, a pH meter or pH testing kit, a TDS meter, and sample containers for water collection. These materials are generally accessible and affordable, making the project feasible for student researchers.
-      </p>
-
-      <ul>
-        <li>100% Pure Cotton (HAPEE brand) – ₱1,000</li>
-        <li>pH &amp; TDS Tester – ₱800</li>
-        <li>Plastic Bottles/Containers &amp; Miscellaneous – ₱300</li>
-        <li><strong>Estimated Total Budget: ₱2,100</strong></li>
-      </ul>
-
-      <p>
-        The proposed budget reflects the study’s focus on affordability and practicality. Most materials are reusable for future experiments, reducing long-term costs. By maintaining a low budget, the study demonstrates that water quality improvement methods do not always require expensive technology. Instead, simple and accessible materials like cotton may provide a helpful solution, especially for communities with limited resources.
-      </p>
-
-      <h2>CONTACT INFORMATION</h2>
-      <ul>
-        <li>JESSA NYN LENDIO — lendiojessanyn@gmail.com</li>
-        <li>MYLYN JANE LEGARTE — mylyn842@gmail.com</li>
-        <li>ASHLEY GEVEROLA — ashleygeverola478@gmail.com</li>
-        <li>MARK JOSHUA SIALANA — markjoshsialana@gmail.com</li>
-        <li>SAHED GOMEZ — gomezsaydo14@gmail.com</li>
-        <li>JOSHUA GOMEZ — joshuapgomez2008@gmail.com</li>
-      </ul>
+      <div class="card">
+        <h3>✈️ Traveling</h3>
+        <p>
+          Traveling lets me experience new places, enjoy beautiful views,
+          and make memorable experiences.
+        </p>
+      </div>
     </div>
   </section>
 
   <footer class="footer">
     © 2026 Mylyn's Webpage
   </footer>
+
+  <script>
+    document.querySelectorAll("a").forEach(link => {
+      link.addEventListener("click", function(e) {
+        const target = this.getAttribute("href");
+
+        if (target && target.includes(".html")) {
+          e.preventDefault();
+          document.body.classList.add("page-turn");
+
+          setTimeout(() => {
+            window.location.href = target;
+          }, 700);
+        }
+      });
+    });
+  </script>
+
 </body>
 </html>
