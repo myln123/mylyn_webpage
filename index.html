@@ -1,279 +1,279 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mylyn | Home</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mylyn | Home</title>
 
-<style>
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-}
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
 
-html{
-  perspective:1400px;
-}
+    html{
+      perspective:1400px;
+    }
 
-body{
-  font-family:"Segoe UI", Arial, sans-serif;
-  background:#f9f4f2;
-  color:#2f2a28;
-  line-height:1.6;
-  overflow-x:hidden;
-  transform-origin:left center;
-  transition:transform .7s ease, opacity .7s ease;
-}
+    body{
+      font-family:"Segoe UI", Arial, sans-serif;
+      background:#f9f4f2;
+      color:#2f2a28;
+      line-height:1.6;
+      overflow-x:hidden;
+      transform-origin:left center;
+      transition:transform .7s ease, opacity .7s ease;
+    }
 
-body.page-turn{
-  transform:rotateY(-75deg);
-  opacity:0;
-}
+    body.page-turn{
+      transform:rotateY(-75deg);
+      opacity:0;
+    }
 
-a{
-  text-decoration:none;
-  color:inherit;
-}
+    a{
+      text-decoration:none;
+      color:inherit;
+    }
 
-.top-bar{
-  background:#2f2a28;
-  color:#fff;
-  text-align:center;
-  font-size:13px;
-  padding:8px 12px;
-  letter-spacing:.3px;
-}
+    .top-bar{
+      background:#2f2a28;
+      color:#fff;
+      text-align:center;
+      font-size:13px;
+      padding:8px 12px;
+      letter-spacing:.3px;
+    }
 
-.navbar{
-  background:#fff;
-  border-bottom:1px solid #ece4df;
-  position:sticky;
-  top:0;
-  z-index:1000;
-}
+    .navbar{
+      background:#fff;
+      border-bottom:1px solid #ece4df;
+      position:sticky;
+      top:0;
+      z-index:1000;
+    }
 
-.nav-container{
-  max-width:1200px;
-  margin:auto;
-  padding:18px 24px;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  gap:20px;
-  flex-wrap:wrap;
-}
+    .nav-container{
+      max-width:1200px;
+      margin:auto;
+      padding:18px 24px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:20px;
+      flex-wrap:wrap;
+    }
 
-.brand{
-  font-size:24px;
-  font-weight:700;
-  letter-spacing:2px;
-}
+    .brand{
+      font-size:24px;
+      font-weight:700;
+      letter-spacing:2px;
+    }
 
-.nav-links{
-  display:flex;
-  gap:24px;
-  flex-wrap:wrap;
-}
+    .nav-links{
+      display:flex;
+      gap:24px;
+      flex-wrap:wrap;
+    }
 
-.nav-links a{
-  font-size:14px;
-  color:#6f625d;
-  transition:.3s ease;
-}
+    .nav-links a{
+      font-size:14px;
+      color:#6f625d;
+      transition:.3s ease;
+    }
 
-.nav-links a:hover,
-.nav-links a.active{
-  color:#d77d8e;
-  font-weight:600;
-}
+    .nav-links a:hover,
+    .nav-links a.active{
+      color:#d77d8e;
+      font-weight:600;
+    }
 
-.hero{
-  max-width:1200px;
-  margin:auto;
-  padding:80px 24px;
-  display:grid;
-  grid-template-columns:1.1fr 0.9fr;
-  gap:40px;
-  align-items:center;
-  min-height:80vh;
-}
+    .hero{
+      max-width:1200px;
+      margin:auto;
+      padding:80px 24px;
+      display:grid;
+      grid-template-columns:1.1fr 0.9fr;
+      gap:40px;
+      align-items:center;
+      min-height:80vh;
+    }
 
-.hero-text small{
-  display:inline-block;
-  margin-bottom:16px;
-  color:#b07d74;
-  font-weight:600;
-  letter-spacing:2px;
-  text-transform:uppercase;
-  font-size:13px;
-}
+    .hero-text small{
+      display:inline-block;
+      margin-bottom:16px;
+      color:#b07d74;
+      font-weight:600;
+      letter-spacing:2px;
+      text-transform:uppercase;
+      font-size:13px;
+    }
 
-.hero-text h1{
-  font-size:62px;
-  line-height:1.05;
-  margin-bottom:18px;
-  font-family:Georgia, "Times New Roman", serif;
-  font-weight:500;
-}
+    .hero-text h1{
+      font-size:62px;
+      line-height:1.05;
+      margin-bottom:18px;
+      font-family:Georgia, "Times New Roman", serif;
+      font-weight:500;
+    }
 
-.hero-text .script{
-  display:block;
-  font-size:54px;
-  color:#c78d98;
-  font-style:italic;
-  margin-bottom:14px;
-}
+    .hero-text .script{
+      display:block;
+      font-size:54px;
+      color:#c78d98;
+      font-style:italic;
+      margin-bottom:14px;
+    }
 
-.hero-text p{
-  max-width:520px;
-  font-size:20px;
-  color:#5e5450;
-}
+    .hero-text p{
+      max-width:520px;
+      font-size:20px;
+      color:#5e5450;
+    }
 
-.hero-image{
-  position:relative;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-}
+    .hero-image{
+      position:relative;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+    }
 
-.image-card{
-  width:100%;
-  max-width:430px;
-  background:#fff;
-  border-radius:28px;
-  padding:16px;
-  box-shadow:0 20px 50px rgba(74,54,49,.12);
-}
+    .image-card{
+      width:100%;
+      max-width:430px;
+      background:#fff;
+      border-radius:28px;
+      padding:16px;
+      box-shadow:0 20px 50px rgba(74,54,49,.12);
+    }
 
-.image-card img{
-  width:100%;
-  height:560px;
-  object-fit:cover;
-  border-radius:22px;
-  display:block;
-}
+    .image-card img{
+      width:100%;
+      height:560px;
+      object-fit:cover;
+      border-radius:22px;
+      display:block;
+    }
 
-.floating-tag{
-  position:absolute;
-  left:-10px;
-  bottom:28px;
-  background:#fff;
-  color:#7a6761;
-  border-radius:16px;
-  padding:14px 18px;
-  box-shadow:0 12px 30px rgba(0,0,0,.10);
-  font-size:14px;
-}
+    .floating-tag{
+      position:absolute;
+      left:-10px;
+      bottom:28px;
+      background:#fff;
+      color:#7a6761;
+      border-radius:16px;
+      padding:14px 18px;
+      box-shadow:0 12px 30px rgba(0,0,0,.10);
+      font-size:14px;
+    }
 
-.footer{
-  background:#2f2a28;
-  color:#f4e9e5;
-  text-align:center;
-  padding:26px 20px;
-  font-size:14px;
-}
+    .footer{
+      background:#2f2a28;
+      color:#f4e9e5;
+      text-align:center;
+      padding:26px 20px;
+      font-size:14px;
+    }
 
-@media (max-width:1024px){
-  .hero{
-    grid-template-columns:1fr;
-    text-align:center;
-  }
+    @media (max-width:1024px){
+      .hero{
+        grid-template-columns:1fr;
+        text-align:center;
+      }
 
-  .hero-text p{
-    margin-left:auto;
-    margin-right:auto;
-  }
+      .hero-text p{
+        margin-left:auto;
+        margin-right:auto;
+      }
 
-  .floating-tag{
-    left:50%;
-    transform:translateX(-50%);
-    bottom:18px;
-  }
-}
+      .floating-tag{
+        left:50%;
+        transform:translateX(-50%);
+        bottom:18px;
+      }
+    }
 
-@media (max-width:768px){
-  .hero-text h1{
-    font-size:42px;
-  }
+    @media (max-width:768px){
+      .hero-text h1{
+        font-size:42px;
+      }
 
-  .hero-text .script{
-    font-size:36px;
-  }
+      .hero-text .script{
+        font-size:36px;
+      }
 
-  .hero-text p{
-    font-size:17px;
-  }
+      .hero-text p{
+        font-size:17px;
+      }
 
-  .image-card img{
-    height:420px;
-  }
-}
-</style>
+      .image-card img{
+        height:420px;
+      }
+    }
+  </style>
 </head>
 <body>
 
-<div class="top-bar">
-  Welcome to Mylyn's personal webpage ✨
-</div>
-
-<nav class="navbar">
-  <div class="nav-container">
-    <div class="brand">MYLYN</div>
-
-    <div class="nav-links">
-      <a href="index.html" class="active">Home</a>
-      <a href="about.html">About Me</a>
-      <a href="hobbies.html">Hobbies</a>
-      <a href="concept-paper.html">Concept Paper</a>
-      <a href="contact.html">Contact</a>
-    </div>
-  </div>
-</nav>
-
-<section class="hero">
-  <div class="hero-text">
-    <small>Personal Website</small>
-    <span class="script">Hey there!</span>
-    <h1>Hi, I'm Mylyn.</h1>
-    <p>
-      Welcome to my elegant personal webpage.
-      Explore my profile, hobbies, and our concept paper
-      about improving tap water quality using cotton filtration.
-    </p>
+  <div class="top-bar">
+    Welcome to Mylyn's personal webpage ✨
   </div>
 
-  <div class="hero-image">
-    <div class="image-card">
-      <img src="mylyn.jpg" alt="Mylyn Profile">
+  <nav class="navbar">
+    <div class="nav-container">
+      <div class="brand">MYLYN</div>
+
+      <div class="nav-links">
+        <a href="index.html" class="active">Home</a>
+        <a href="about.html">About Me</a>
+        <a href="hobbies.html">Hobbies</a>
+        <a href="concept-paper.html">Concept Paper</a>
+        <a href="contact.html">Contact</a>
+      </div>
     </div>
-    <div class="floating-tag">
-      Student • Dreamer • Learner 💖
+  </nav>
+
+  <section class="hero">
+    <div class="hero-text">
+      <small>Personal Website</small>
+      <span class="script">Hey there!</span>
+      <h1>Hi, I'm Mylyn.</h1>
+      <p>
+        Welcome to my elegant personal webpage.
+        Explore my profile, hobbies, and our concept paper
+        about improving tap water quality using cotton filtration.
+      </p>
     </div>
-  </div>
-</section>
 
-<footer class="footer">
-  © 2026 Mylyn's Webpage
-</footer>
+    <div class="hero-image">
+      <div class="image-card">
+        <img src="mylyn.jpg" alt="Mylyn Profile">
+      </div>
+      <div class="floating-tag">
+        Student • Dreamer • Learner 💖
+      </div>
+    </div>
+  </section>
 
-<script>
-document.querySelectorAll("a").forEach(link => {
-  link.addEventListener("click", function(e) {
-    const target = this.getAttribute("href");
+  <footer class="footer">
+    © 2026 Mylyn's Webpage
+  </footer>
 
-    if (target && target.includes(".html")) {
-      e.preventDefault();
-      document.body.classList.add("page-turn");
+  <script>
+    document.querySelectorAll("a").forEach(link => {
+      link.addEventListener("click", function(e) {
+        const target = this.getAttribute("href");
 
-      setTimeout(() => {
-        window.location.href = target;
-      }, 700);
-    }
-  });
-});
-</script>
+        if (target && target.includes(".html")) {
+          e.preventDefault();
+          document.body.classList.add("page-turn");
+
+          setTimeout(() => {
+            window.location.href = target;
+          }, 700);
+        }
+      });
+    });
+  </script>
 
 </body>
 </html>
