@@ -3,24 +3,46 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Mylyn | Home</title>
+  <title>Mylyn | About Me</title>
+
   <style>
-    *{margin:0;padding:0;box-sizing:border-box;}
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
+
+    html{
+      perspective:1400px;
+    }
+
     body{
-      font-family: "Segoe UI", Arial, sans-serif;
+      font-family:"Segoe UI", Arial, sans-serif;
       background:#f9f4f2;
       color:#2f2a28;
-      line-height:1.6;
+      line-height:1.7;
+      transform-origin:left center;
+      transition:transform .7s ease, opacity .7s ease;
     }
-    a{text-decoration:none;color:inherit;}
+
+    body.page-turn{
+      transform:rotateY(-75deg);
+      opacity:0;
+    }
+
+    a{
+      text-decoration:none;
+      color:inherit;
+    }
+
     .top-bar{
       background:#2f2a28;
       color:#fff;
       text-align:center;
       font-size:13px;
       padding:8px 12px;
-      letter-spacing:.3px;
     }
+
     .navbar{
       background:#fff;
       border-bottom:1px solid #ece4df;
@@ -28,6 +50,7 @@
       top:0;
       z-index:1000;
     }
+
     .nav-container{
       max-width:1200px;
       margin:auto;
@@ -38,176 +61,95 @@
       gap:20px;
       flex-wrap:wrap;
     }
+
     .brand{
       font-size:24px;
       font-weight:700;
       letter-spacing:2px;
     }
+
     .nav-links{
       display:flex;
       gap:24px;
       flex-wrap:wrap;
     }
+
     .nav-links a{
       font-size:14px;
       color:#6f625d;
       transition:.3s ease;
     }
+
     .nav-links a:hover,
     .nav-links a.active{
       color:#d77d8e;
       font-weight:600;
     }
-    .hero{
-      max-width:1200px;
+
+    .page{
+      max-width:1100px;
       margin:auto;
-      padding:70px 24px;
-      display:grid;
-      grid-template-columns:1.1fr 0.9fr;
-      gap:40px;
-      align-items:center;
-      min-height:78vh;
+      padding:70px 24px 80px;
     }
-    .hero-text small{
-      display:inline-block;
-      margin-bottom:16px;
-      color:#b07d74;
-      font-weight:600;
-      letter-spacing:2px;
-      text-transform:uppercase;
-      font-size:13px;
+
+    .page-title{
+      text-align:center;
+      margin-bottom:40px;
+      animation:fadeUp .8s ease;
     }
-    .hero-text h1{
-      font-size:62px;
-      line-height:1.05;
-      margin-bottom:18px;
+
+    .page-title h1{
+      font-size:50px;
       font-family:Georgia, "Times New Roman", serif;
       font-weight:500;
+      margin-bottom:12px;
     }
-    .hero-text .script{
-      display:block;
-      font-size:54px;
-      color:#c78d98;
-      font-style:italic;
-      margin-bottom:14px;
+
+    .page-title p{
+      color:#7b6d67;
+      font-size:18px;
+      max-width:700px;
+      margin:auto;
     }
-    .hero-text p{
-      max-width:560px;
-      font-size:20px;
-      color:#5e5450;
-      margin-bottom:28px;
-    }
-    .hero-buttons{
-      display:flex;
-      gap:14px;
-      flex-wrap:wrap;
-    }
-    .btn{
-      padding:14px 26px;
-      border:none;
-      border-radius:999px;
-      font-size:15px;
-      cursor:pointer;
-      transition:.3s ease;
-      display:inline-block;
-    }
-    .btn-primary{
-      background:#d77d8e;
-      color:#fff;
-      box-shadow:0 10px 25px rgba(215,125,142,.25);
-    }
-    .btn-primary:hover{
-      transform:translateY(-2px);
-      background:#cb6f81;
-    }
-    .btn-secondary{
-      background:#fff;
-      color:#2f2a28;
-      border:1px solid #e5d8d1;
-    }
-    .btn-secondary:hover{
-      background:#f5ece8;
-    }
-    .hero-image{
-      position:relative;
-      display:flex;
-      justify-content:center;
+
+    .about-wrap{
+      display:grid;
+      grid-template-columns:0.9fr 1.1fr;
+      gap:30px;
       align-items:center;
+      animation:fadeUp 1s ease;
     }
-    .image-card{
-      width:100%;
-      max-width:430px;
+
+    .image-card,
+    .content-card{
       background:#fff;
       border-radius:28px;
-      padding:16px;
-      box-shadow:0 20px 50px rgba(74,54,49,.12);
+      padding:24px;
+      box-shadow:0 15px 40px rgba(80,58,52,.08);
+      border:1px solid #f0e6e0;
     }
+
     .image-card img{
       width:100%;
-      height:560px;
+      height:500px;
       object-fit:cover;
       border-radius:22px;
       display:block;
     }
-    .floating-tag{
-      position:absolute;
-      left:-10px;
-      bottom:28px;
-      background:#fff;
-      color:#7a6761;
-      border-radius:16px;
-      padding:14px 18px;
-      box-shadow:0 12px 30px rgba(0,0,0,.10);
-      font-size:14px;
-    }
-    .section{
-      max-width:1200px;
-      margin:auto;
-      padding:0 24px 80px;
-    }
-    .section-title{
-      text-align:center;
-      margin-bottom:34px;
-    }
-    .section-title h2{
-      font-size:38px;
+
+    .content-card h2{
+      font-size:28px;
+      margin-bottom:14px;
       font-family:Georgia, "Times New Roman", serif;
       font-weight:500;
-      margin-bottom:10px;
     }
-    .section-title p{
-      color:#7b6d67;
-      max-width:700px;
-      margin:auto;
+
+    .content-card p{
+      color:#6d625d;
+      margin-bottom:16px;
       font-size:17px;
     }
-    .feature-grid{
-      display:grid;
-      grid-template-columns:repeat(3,1fr);
-      gap:24px;
-    }
-    .feature-card{
-      background:#fff;
-      border-radius:24px;
-      padding:28px;
-      box-shadow:0 12px 35px rgba(80,58,52,.08);
-      border:1px solid #f0e6e0;
-      transition:.3s ease;
-      text-align:center;
-    }
-    .feature-card:hover{
-      transform:translateY(-6px);
-    }
-    .feature-card h3{
-      font-size:24px;
-      margin-bottom:12px;
-      font-family:Georgia, "Times New Roman", serif;
-      font-weight:500;
-    }
-    .feature-card p{
-      color:#6d625d;
-      margin-bottom:18px;
-    }
+
     .footer{
       background:#2f2a28;
       color:#f4e9e5;
@@ -215,45 +157,43 @@
       padding:26px 20px;
       font-size:14px;
     }
-    @media (max-width:1024px){
-      .hero{
-        grid-template-columns:1fr;
-        text-align:center;
+
+    @keyframes fadeUp{
+      from{
+        opacity:0;
+        transform:translateY(30px);
       }
-      .hero-text p{
-        margin-left:auto;
-        margin-right:auto;
-      }
-      .hero-buttons{
-        justify-content:center;
-      }
-      .feature-grid{
-        grid-template-columns:1fr 1fr;
-      }
-      .floating-tag{
-        left:50%;
-        transform:translateX(-50%);
-        bottom:18px;
+      to{
+        opacity:1;
+        transform:translateY(0);
       }
     }
-    @media (max-width:768px){
-      .hero-text h1{font-size:42px;}
-      .hero-text .script{font-size:36px;}
-      .hero-text p{font-size:17px;}
-      .image-card img{height:420px;}
-      .feature-grid{grid-template-columns:1fr;}
+
+    @media (max-width:900px){
+      .about-wrap{
+        grid-template-columns:1fr;
+      }
+
+      .image-card img{
+        height:420px;
+      }
+
+      .page-title h1{
+        font-size:40px;
+      }
     }
   </style>
 </head>
 <body>
+
   <div class="top-bar">Welcome to Mylyn's personal webpage ✨</div>
 
   <nav class="navbar">
     <div class="nav-container">
       <div class="brand">MYLYN</div>
       <div class="nav-links">
-        <a href="index.html" class="active">Home</a>
-        <a href="about.html">About Me</a>
+        <a href="index.html">Home</a>
+        <a href="about.html" class="active">About Me</a>
         <a href="hobbies.html">Hobbies</a>
         <a href="concept-paper.html">Concept Paper</a>
         <a href="contact.html">Contact</a>
@@ -261,52 +201,36 @@
     </div>
   </nav>
 
-  <section class="hero">
-    <div class="hero-text">
-      <small>Personal Website</small>
-      <span class="script">Hey there!</span>
-      <h1>Hi, I'm Mylyn.</h1>
-      <p>
-        Welcome to my elegant personal webpage. Here you can know more about me,
-        my hobbies, and our concept paper about improving tap water quality using cotton filtration.
-      </p>
-      <div class="hero-buttons">
-        <a href="about.html" class="btn btn-primary">Learn More</a>
-        <a href="concept-paper.html" class="btn btn-secondary">View Concept Paper</a>
-      </div>
+  <section class="page">
+    <div class="page-title">
+      <h1>About Me</h1>
+      <p>This page shares a little about who I am and what inspires me.</p>
     </div>
 
-    <div class="hero-image">
+    <div class="about-wrap">
       <div class="image-card">
         <img src="mylyn.jpg" alt="Mylyn Profile">
       </div>
-      <div class="floating-tag">Student • Dreamer • Learner 💖</div>
-    </div>
-  </section>
 
-  <section class="section">
-    <div class="section-title">
-      <h2>Explore My Website</h2>
-      <p>Click a section below to learn more about me and our school project.</p>
-    </div>
-
-    <div class="feature-grid">
-      <div class="feature-card">
-        <h3>About Me</h3>
-        <p>Know more about who I am and what inspires me.</p>
-        <a href="about.html" class="btn btn-primary">Open</a>
-      </div>
-
-      <div class="feature-card">
-        <h3>My Hobbies</h3>
-        <p>See the things I enjoy doing in my free time.</p>
-        <a href="hobbies.html" class="btn btn-primary">Open</a>
-      </div>
-
-      <div class="feature-card">
-        <h3>Concept Paper</h3>
-        <p>Read our concept paper directly on the webpage.</p>
-        <a href="concept-paper.html" class="btn btn-primary">Open</a>
+      <div class="content-card">
+        <h2>Hello, I'm Mylyn 💖</h2>
+        <p>
+          Hi! My name is Mylyn. I made this webpage to introduce myself in a simple,
+          elegant, and meaningful way.
+        </p>
+        <p>
+          I love learning new things, exploring technology, and sharing ideas with others.
+          I enjoy growing as a student and discovering knowledge that can help me in school
+          and in life.
+        </p>
+        <p>
+          This website also shows one of our school works, which is our concept paper about
+          the effectiveness of cotton in water filtration for improving tap water quality.
+        </p>
+        <p>
+          Through this webpage, I want to present myself and our project in a beautiful and
+          organized way.
+        </p>
       </div>
     </div>
   </section>
@@ -314,5 +238,23 @@
   <footer class="footer">
     © 2026 Mylyn's Webpage
   </footer>
+
+  <script>
+    document.querySelectorAll("a").forEach(link => {
+      link.addEventListener("click", function(e) {
+        const target = this.getAttribute("href");
+
+        if (target && target.includes(".html")) {
+          e.preventDefault();
+          document.body.classList.add("page-turn");
+
+          setTimeout(() => {
+            window.location.href = target;
+          }, 700);
+        }
+      });
+    });
+  </script>
+
 </body>
 </html>
