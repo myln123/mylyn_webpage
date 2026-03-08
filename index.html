@@ -3,31 +3,16 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Mylyn's Page</title>
-
+  <title>Mylyn | Home</title>
   <style>
-    *{
-      margin:0;
-      padding:0;
-      box-sizing:border-box;
-    }
-
-    html{
-      scroll-behavior:smooth;
-    }
-
+    *{margin:0;padding:0;box-sizing:border-box;}
     body{
       font-family: "Segoe UI", Arial, sans-serif;
       background:#f9f4f2;
       color:#2f2a28;
       line-height:1.6;
     }
-
-    a{
-      text-decoration:none;
-      color:inherit;
-    }
-
+    a{text-decoration:none;color:inherit;}
     .top-bar{
       background:#2f2a28;
       color:#fff;
@@ -36,16 +21,13 @@
       padding:8px 12px;
       letter-spacing:.3px;
     }
-
     .navbar{
-      width:100%;
       background:#fff;
       border-bottom:1px solid #ece4df;
       position:sticky;
       top:0;
       z-index:1000;
     }
-
     .nav-container{
       max-width:1200px;
       margin:auto;
@@ -54,42 +36,38 @@
       justify-content:space-between;
       align-items:center;
       gap:20px;
+      flex-wrap:wrap;
     }
-
     .brand{
       font-size:24px;
       font-weight:700;
       letter-spacing:2px;
-      color:#2f2a28;
     }
-
     .nav-links{
       display:flex;
-      gap:28px;
+      gap:24px;
       flex-wrap:wrap;
     }
-
     .nav-links a{
       font-size:14px;
       color:#6f625d;
       transition:.3s ease;
     }
-
-    .nav-links a:hover{
+    .nav-links a:hover,
+    .nav-links a.active{
       color:#d77d8e;
+      font-weight:600;
     }
-
     .hero{
       max-width:1200px;
       margin:auto;
-      padding:70px 24px 50px;
+      padding:70px 24px;
       display:grid;
       grid-template-columns:1.1fr 0.9fr;
       gap:40px;
       align-items:center;
       min-height:78vh;
     }
-
     .hero-text small{
       display:inline-block;
       margin-bottom:16px;
@@ -99,16 +77,13 @@
       text-transform:uppercase;
       font-size:13px;
     }
-
     .hero-text h1{
       font-size:62px;
       line-height:1.05;
       margin-bottom:18px;
-      font-family: Georgia, "Times New Roman", serif;
+      font-family:Georgia, "Times New Roman", serif;
       font-weight:500;
-      color:#2f2a28;
     }
-
     .hero-text .script{
       display:block;
       font-size:54px;
@@ -116,21 +91,17 @@
       font-style:italic;
       margin-bottom:14px;
     }
-
     .hero-text p{
       max-width:560px;
       font-size:20px;
       color:#5e5450;
       margin-bottom:28px;
     }
-
     .hero-buttons{
       display:flex;
       gap:14px;
       flex-wrap:wrap;
-      margin-top:10px;
     }
-
     .btn{
       padding:14px 26px;
       border:none;
@@ -140,35 +111,29 @@
       transition:.3s ease;
       display:inline-block;
     }
-
     .btn-primary{
       background:#d77d8e;
       color:#fff;
       box-shadow:0 10px 25px rgba(215,125,142,.25);
     }
-
     .btn-primary:hover{
       transform:translateY(-2px);
       background:#cb6f81;
     }
-
     .btn-secondary{
       background:#fff;
       color:#2f2a28;
       border:1px solid #e5d8d1;
     }
-
     .btn-secondary:hover{
       background:#f5ece8;
     }
-
     .hero-image{
       position:relative;
       display:flex;
       justify-content:center;
       align-items:center;
     }
-
     .image-card{
       width:100%;
       max-width:430px;
@@ -177,7 +142,6 @@
       padding:16px;
       box-shadow:0 20px 50px rgba(74,54,49,.12);
     }
-
     .image-card img{
       width:100%;
       height:560px;
@@ -185,7 +149,6 @@
       border-radius:22px;
       display:block;
     }
-
     .floating-tag{
       position:absolute;
       left:-10px;
@@ -197,139 +160,54 @@
       box-shadow:0 12px 30px rgba(0,0,0,.10);
       font-size:14px;
     }
-
     .section{
       max-width:1200px;
       margin:auto;
-      padding:30px 24px 80px;
+      padding:0 24px 80px;
     }
-
     .section-title{
       text-align:center;
       margin-bottom:34px;
     }
-
     .section-title h2{
       font-size:38px;
-      color:#2f2a28;
-      font-family: Georgia, "Times New Roman", serif;
+      font-family:Georgia, "Times New Roman", serif;
       font-weight:500;
       margin-bottom:10px;
     }
-
     .section-title p{
       color:#7b6d67;
       max-width:700px;
       margin:auto;
       font-size:17px;
     }
-
-    .grid{
+    .feature-grid{
       display:grid;
-      grid-template-columns:repeat(3, 1fr);
+      grid-template-columns:repeat(3,1fr);
       gap:24px;
     }
-
-    .card{
+    .feature-card{
       background:#fff;
       border-radius:24px;
       padding:28px;
       box-shadow:0 12px 35px rgba(80,58,52,.08);
       border:1px solid #f0e6e0;
       transition:.3s ease;
+      text-align:center;
     }
-
-    .card:hover{
+    .feature-card:hover{
       transform:translateY(-6px);
     }
-
-    .card h3{
+    .feature-card h3{
       font-size:24px;
-      margin-bottom:14px;
-      color:#2f2a28;
-      font-family: Georgia, "Times New Roman", serif;
+      margin-bottom:12px;
+      font-family:Georgia, "Times New Roman", serif;
       font-weight:500;
     }
-
-    .card p,
-    .card li{
+    .feature-card p{
       color:#6d625d;
-      font-size:16px;
-    }
-
-    .card ul{
-      padding-left:20px;
-    }
-
-    .card ul li{
-      margin-bottom:10px;
-    }
-
-    .concept-card{
-      grid-column:span 2;
-    }
-
-    .concept-paper-content{
-      max-height:0;
-      overflow:hidden;
-      opacity:0;
-      margin-top:0;
-      transition:max-height .7s ease, opacity .5s ease, margin-top .4s ease;
-    }
-
-    .concept-paper-content.open{
-      max-height:4000px;
-      opacity:1;
-      margin-top:22px;
-    }
-
-    .concept-paper-box{
-      background:#fcf7f5;
-      border:1px solid #eadcd5;
-      border-radius:20px;
-      padding:24px;
-    }
-
-    .concept-paper-box h4{
-      font-size:20px;
-      color:#2f2a28;
-      margin-top:18px;
-      margin-bottom:10px;
-      font-family: Georgia, "Times New Roman", serif;
-      font-weight:600;
-    }
-
-    .concept-paper-box h4:first-child{
-      margin-top:0;
-    }
-
-    .concept-title{
-      font-size:28px;
-      line-height:1.3;
-      color:#2f2a28;
-      text-align:center;
       margin-bottom:18px;
-      font-family: Georgia, "Times New Roman", serif;
-      font-weight:600;
     }
-
-    .concept-paper-box p{
-      margin-bottom:14px;
-      text-align:justify;
-    }
-
-    .budget-list,
-    .contact-list{
-      padding-left:20px;
-      margin-top:10px;
-    }
-
-    .budget-list li,
-    .contact-list li{
-      margin-bottom:8px;
-      color:#6d625d;
-    }
-
     .footer{
       background:#2f2a28;
       color:#f4e9e5;
@@ -337,118 +215,64 @@
       padding:26px 20px;
       font-size:14px;
     }
-
-    @media (max-width: 1024px){
+    @media (max-width:1024px){
       .hero{
         grid-template-columns:1fr;
         text-align:center;
       }
-
       .hero-text p{
         margin-left:auto;
         margin-right:auto;
       }
-
       .hero-buttons{
         justify-content:center;
       }
-
+      .feature-grid{
+        grid-template-columns:1fr 1fr;
+      }
       .floating-tag{
         left:50%;
         transform:translateX(-50%);
         bottom:18px;
       }
-
-      .grid{
-        grid-template-columns:1fr 1fr;
-      }
-
-      .concept-card{
-        grid-column:span 2;
-      }
     }
-
-    @media (max-width: 768px){
-      .nav-container{
-        flex-direction:column;
-        align-items:flex-start;
-      }
-
-      .nav-links{
-        gap:16px;
-      }
-
-      .hero{
-        padding-top:40px;
-      }
-
-      .hero-text h1{
-        font-size:42px;
-      }
-
-      .hero-text .script{
-        font-size:36px;
-      }
-
-      .hero-text p{
-        font-size:17px;
-      }
-
-      .image-card img{
-        height:420px;
-      }
-
-      .grid{
-        grid-template-columns:1fr;
-      }
-
-      .concept-card{
-        grid-column:span 1;
-      }
-
-      .section-title h2{
-        font-size:30px;
-      }
-
-      .concept-title{
-        font-size:22px;
-      }
+    @media (max-width:768px){
+      .hero-text h1{font-size:42px;}
+      .hero-text .script{font-size:36px;}
+      .hero-text p{font-size:17px;}
+      .image-card img{height:420px;}
+      .feature-grid{grid-template-columns:1fr;}
     }
   </style>
 </head>
 <body>
-
-  <div class="top-bar">
-    Welcome to Mylyn's personal webpage ✨
-  </div>
+  <div class="top-bar">Welcome to Mylyn's personal webpage ✨</div>
 
   <nav class="navbar">
     <div class="nav-container">
       <div class="brand">MYLYN</div>
-
       <div class="nav-links">
-        <a href="#home">Home</a>
-        <a href="#about">About Me</a>
-        <a href="#hobbies">Hobbies</a>
-        <a href="#concept">Concept Paper</a>
-        <a href="#hello">Say Hello</a>
+        <a href="index.html" class="active">Home</a>
+        <a href="about.html">About Me</a>
+        <a href="hobbies.html">Hobbies</a>
+        <a href="concept-paper.html">Concept Paper</a>
+        <a href="contact.html">Contact</a>
       </div>
     </div>
   </nav>
 
-  <section class="hero" id="home">
+  <section class="hero">
     <div class="hero-text">
       <small>Personal Website</small>
       <span class="script">Hey there!</span>
       <h1>Hi, I'm Mylyn.</h1>
       <p>
-        I enjoy learning new things, exploring technology, and sharing ideas with others.
-        Welcome to my elegant personal webpage where you can know more about me and read our concept paper.
+        Welcome to my elegant personal webpage. Here you can know more about me,
+        my hobbies, and our concept paper about improving tap water quality using cotton filtration.
       </p>
-
       <div class="hero-buttons">
-        <a href="#about" class="btn btn-primary">Learn More</a>
-        <button class="btn btn-secondary" onclick="openConceptPaper()">View Concept Paper</button>
+        <a href="about.html" class="btn btn-primary">Learn More</a>
+        <a href="concept-paper.html" class="btn btn-secondary">View Concept Paper</a>
       </div>
     </div>
 
@@ -460,106 +284,29 @@
     </div>
   </section>
 
-  <section class="section" id="about">
+  <section class="section">
     <div class="section-title">
-      <h2>About Me</h2>
-      <p>
-        This page shares a little about who I am, the things I enjoy, and our concept paper project.
-      </p>
+      <h2>Explore My Website</h2>
+      <p>Click a section below to learn more about me and our school project.</p>
     </div>
 
-    <div class="grid">
-      <div class="card">
-        <h3>Who I Am</h3>
-        <p>
-          Hi! My name is Mylyn. I made this webpage to introduce myself in a simple and beautiful way.
-          I love learning, growing, and discovering new ideas that can inspire me in school and in life.
-        </p>
+    <div class="feature-grid">
+      <div class="feature-card">
+        <h3>About Me</h3>
+        <p>Know more about who I am and what inspires me.</p>
+        <a href="about.html" class="btn btn-primary">Open</a>
       </div>
 
-      <div class="card" id="hobbies">
+      <div class="feature-card">
         <h3>My Hobbies</h3>
-        <ul>
-          <li>🎧 Listening to music</li>
-          <li>🎬 Watching movies</li>
-          <li>💻 Learning technology</li>
-          <li>✈️ Traveling</li>
-        </ul>
+        <p>See the things I enjoy doing in my free time.</p>
+        <a href="hobbies.html" class="btn btn-primary">Open</a>
       </div>
 
-      <div class="card concept-card" id="concept">
+      <div class="feature-card">
         <h3>Concept Paper</h3>
-        <p style="margin-bottom:18px;">
-          Click the button below to read our concept paper directly on this webpage.
-        </p>
-        <button class="btn btn-primary" onclick="toggleConceptPaper()" id="conceptBtn">Open Concept Paper 📖</button>
-
-        <div class="concept-paper-content" id="conceptPaperContent">
-          <div class="concept-paper-box">
-            <div class="concept-title">
-              EFFECTIVENESS OF COTTON IN WATER FILTER<br>
-              FOR IMPROVING TAPWATER QUALITY
-            </div>
-
-            <h4>INTRODUCTION</h4>
-            <p>
-              Access to safe and clean drinking water remains a major global concern, as millions of people still lack reliable access to properly treated water. According to the World Health Organization, unsafe water contributes significantly to the spread of waterborne diseases such as cholera, dysentery, and typhoid. Even in areas with developed water systems, tap water may still contain residual contaminants due to aging pipelines, environmental pollution, and inadequate treatment processes. These issues highlight the continuous need for affordable and effective household water treatment methods.
-            </p>
-            <p>
-              In response to this concern, the present study focuses on exploring cotton as a potential filtration material for improving tap water quality. While commercial filters often use advanced materials like activated carbon, ceramics, and membrane systems, these options can be costly for some households. Cotton, being widely available and affordable, may offer a practical alternative. This research investigates whether the cotton in water filter can improve tap water quality by measuring changes in pH level and total dissolved solids (TDS) before and after filtration.
-            </p>
-
-            <h4>PURPOSE OF THE STUDY</h4>
-            <p>
-              The primary purpose of this study is to determine the effectiveness of cotton as a filtration medium in improving the quality of tap water. Specifically, it aims to measure the pH level and total dissolved solids (TDS) of tap water before and after passing through different amounts of cotton (20 g and 40 g). Through this comparison, the study seeks to identify whether cotton can significantly enhance water quality.
-            </p>
-            <p>
-              Additionally, the research intends to contribute to the broader goal of promoting accessible and low-cost water treatment solutions. This aligns with United Nations Sustainable Development Goal 6 (Clean Water and Sanitation), which emphasizes ensuring availability and sustainable management of water for all. On a national level, the study also supports the objectives of Republic Act No. 9275, which promotes the protection and preservation of water quality in the Philippines. By evaluating a simple and affordable material like cotton, the study aims to provide practical knowledge that households and communities can apply.
-            </p>
-
-            <h4>DESCRIPTION</h4>
-            <p>
-              The project involves designing and constructing a simple cotton-based water filter using 100% pure cotton as the primary filtering material. The experiment will collect tap water samples from Malbog, Alegria, Cebu, and test their pH level and TDS before filtration. Afterward, the water will be filtered using two different amounts of cotton (20 grams and 40 grams), and the same parameters will be measured again for comparison.
-            </p>
-            <p>
-              The experimental design follows a quantitative approach, focusing on measurable data to determine the effectiveness of the cotton filter. The independent variable in the study is the amount of cotton used, while the dependent variables are the pH level and total dissolved solids of the tap water. The results will be analyzed to determine if there is a significant difference between pre-filtration and post-filtration measurements. This structured approach ensures that conclusions are based on objective data rather than assumptions.
-            </p>
-
-            <h4>SUPPORT</h4>
-            <p>
-              To successfully conduct this study, several materials and tools are required. These include 100% pure cotton, plastic bottles or containers for the filter structure, a pH meter or pH testing kit, a TDS meter, and sample containers for water collection. These materials are generally accessible and affordable, making the project feasible for student researchers.
-            </p>
-
-            <ul class="budget-list">
-              <li>100% Pure Cotton (HAPEE brand) – ₱1,000</li>
-              <li>pH &amp; TDS Tester – ₱800</li>
-              <li>Plastic Bottles/Containers &amp; Miscellaneous – ₱300</li>
-              <li><strong>Estimated Total Budget: ₱2,100</strong></li>
-            </ul>
-
-            <p>
-              The proposed budget reflects the study’s focus on affordability and practicality. Most materials are reusable for future experiments, reducing long-term costs. By maintaining a low budget, the study demonstrates that water quality improvement methods do not always require expensive technology. Instead, simple and accessible materials like cotton may provide a helpful solution, especially for communities with limited resources.
-            </p>
-
-            <h4>CONTACT INFORMATION</h4>
-            <ul class="contact-list">
-              <li>JESSA NYN LENDIO — lendiojessanyn@gmail.com</li>
-              <li>MYLYN JANE LEGARTE — mylyn842@gmail.com</li>
-              <li>ASHLEY GEVEROLA — ashleygeverola478@gmail.com</li>
-              <li>MARK JOSHUA SIALANA — markjoshsialana@gmail.com</li>
-              <li>SAHED GOMEZ — gomezsaydo14@gmail.com</li>
-              <li>JOSHUA GOMEZ — joshuapgomez2008@gmail.com</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-
-      <div class="card" id="hello">
-        <h3>Say Hello</h3>
-        <p style="margin-bottom:18px;">
-          Thank you for visiting my webpage. Click the button below for a warm greeting.
-        </p>
-        <button class="btn btn-primary" onclick="hello()">Click Me</button>
+        <p>Read our concept paper directly on the webpage.</p>
+        <a href="concept-paper.html" class="btn btn-primary">Open</a>
       </div>
     </div>
   </section>
@@ -567,38 +314,5 @@
   <footer class="footer">
     © 2026 Mylyn's Webpage
   </footer>
-
-  <script>
-    function hello() {
-      alert("Hello! Thanks for visiting Mylyn's page 💖");
-    }
-
-    function toggleConceptPaper() {
-      const content = document.getElementById("conceptPaperContent");
-      const button = document.getElementById("conceptBtn");
-
-      content.classList.toggle("open");
-
-      if (content.classList.contains("open")) {
-        button.textContent = "Close Concept Paper ✖";
-      } else {
-        button.textContent = "Open Concept Paper 📖";
-      }
-    }
-
-    function openConceptPaper() {
-      const conceptSection = document.getElementById("concept");
-      const content = document.getElementById("conceptPaperContent");
-      const button = document.getElementById("conceptBtn");
-
-      conceptSection.scrollIntoView({ behavior: "smooth", block: "start" });
-
-      setTimeout(() => {
-        content.classList.add("open");
-        button.textContent = "Close Concept Paper ✖";
-      }, 500);
-    }
-  </script>
-
 </body>
 </html>
