@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Mylyn's Page</title>
 
   <style>
@@ -10,254 +10,444 @@
       margin:0;
       padding:0;
       box-sizing:border-box;
-      font-family:'Segoe UI', sans-serif;
     }
 
     body{
-      min-height:100vh;
-      background: linear-gradient(-45deg,#ff9a9e,#fad0c4,#ffd6e0,#fff1f5);
-      background-size:400% 400%;
-      animation:gradientMove 12s ease infinite;
-      color:white;
-      overflow-x:hidden;
-      position:relative;
+      font-family: "Segoe UI", Arial, sans-serif;
+      background:#f9f4f2;
+      color:#2f2a28;
+      line-height:1.6;
     }
 
-    @keyframes gradientMove{
-      0%{background-position:0% 50%;}
-      50%{background-position:100% 50%;}
-      100%{background-position:0% 50%;}
+    a{
+      text-decoration:none;
+      color:inherit;
     }
 
-    header{
+    .top-bar{
+      background:#2f2a28;
+      color:#fff;
       text-align:center;
-      padding:70px 20px 40px;
-      position:relative;
-      z-index:2;
+      font-size:13px;
+      padding:8px 12px;
+      letter-spacing:.3px;
     }
 
-    .profile-img{
-      width:170px;
-      height:170px;
-      object-fit:cover;
-      border-radius:50%;
-      border:5px solid rgba(255,255,255,0.85);
-      box-shadow:0 15px 35px rgba(0,0,0,0.25);
-      margin-bottom:20px;
-      transition:transform .4s ease, box-shadow .4s ease;
+    .navbar{
+      width:100%;
+      background:#fff;
+      border-bottom:1px solid #ece4df;
+      position:sticky;
+      top:0;
+      z-index:1000;
     }
 
-    .profile-img:hover{
-      transform:scale(1.05);
-      box-shadow:0 20px 45px rgba(0,0,0,0.35);
-    }
-
-    header h1{
-      font-size:52px;
-      font-weight:700;
-      letter-spacing:1px;
-    }
-
-    header p{
-      margin-top:10px;
-      font-size:20px;
-      opacity:.95;
-    }
-
-    .container{
-      max-width:1000px;
+    .nav-container{
+      max-width:1200px;
       margin:auto;
-      padding:20px;
+      padding:18px 24px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:20px;
+    }
+
+    .brand{
+      font-size:24px;
+      font-weight:700;
+      letter-spacing:2px;
+      color:#2f2a28;
+    }
+
+    .nav-links{
+      display:flex;
+      gap:28px;
+      flex-wrap:wrap;
+    }
+
+    .nav-links a{
+      font-size:14px;
+      color:#6f625d;
+      transition:.3s ease;
+    }
+
+    .nav-links a:hover{
+      color:#d77d8e;
+    }
+
+    .hero{
+      max-width:1200px;
+      margin:auto;
+      padding:70px 24px 50px;
+      display:grid;
+      grid-template-columns:1.1fr 0.9fr;
+      gap:40px;
+      align-items:center;
+      min-height:78vh;
+    }
+
+    .hero-text small{
+      display:inline-block;
+      margin-bottom:16px;
+      color:#b07d74;
+      font-weight:600;
+      letter-spacing:2px;
+      text-transform:uppercase;
+      font-size:13px;
+    }
+
+    .hero-text h1{
+      font-size:62px;
+      line-height:1.05;
+      margin-bottom:18px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-weight:500;
+      color:#2f2a28;
+    }
+
+    .hero-text .script{
+      display:block;
+      font-size:54px;
+      color:#c78d98;
+      font-style:italic;
+      margin-bottom:14px;
+    }
+
+    .hero-text p{
+      max-width:560px;
+      font-size:20px;
+      color:#5e5450;
+      margin-bottom:28px;
+    }
+
+    .hero-buttons{
+      display:flex;
+      gap:14px;
+      flex-wrap:wrap;
+      margin-top:10px;
+    }
+
+    .btn{
+      padding:14px 26px;
+      border:none;
+      border-radius:999px;
+      font-size:15px;
+      cursor:pointer;
+      transition:.3s ease;
+      display:inline-block;
+    }
+
+    .btn-primary{
+      background:#d77d8e;
+      color:#fff;
+      box-shadow:0 10px 25px rgba(215,125,142,.25);
+    }
+
+    .btn-primary:hover{
+      transform:translateY(-2px);
+      background:#cb6f81;
+    }
+
+    .btn-secondary{
+      background:#fff;
+      color:#2f2a28;
+      border:1px solid #e5d8d1;
+    }
+
+    .btn-secondary:hover{
+      background:#f5ece8;
+    }
+
+    .hero-image{
       position:relative;
-      z-index:2;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+    }
+
+    .image-card{
+      width:100%;
+      max-width:430px;
+      background:#fff;
+      border-radius:28px;
+      padding:16px;
+      box-shadow:0 20px 50px rgba(74,54,49,.12);
+    }
+
+    .image-card img{
+      width:100%;
+      height:560px;
+      object-fit:cover;
+      border-radius:22px;
+      display:block;
+    }
+
+    .floating-tag{
+      position:absolute;
+      left:-10px;
+      bottom:28px;
+      background:#fff;
+      color:#7a6761;
+      border-radius:16px;
+      padding:14px 18px;
+      box-shadow:0 12px 30px rgba(0,0,0,.10);
+      font-size:14px;
+    }
+
+    .section{
+      max-width:1200px;
+      margin:auto;
+      padding:30px 24px 80px;
+    }
+
+    .section-title{
+      text-align:center;
+      margin-bottom:34px;
+    }
+
+    .section-title h2{
+      font-size:38px;
+      color:#2f2a28;
+      font-family: Georgia, "Times New Roman", serif;
+      font-weight:500;
+      margin-bottom:10px;
+    }
+
+    .section-title p{
+      color:#7b6d67;
+      max-width:700px;
+      margin:auto;
+      font-size:17px;
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(3, 1fr);
+      gap:24px;
     }
 
     .card{
-      background:rgba(255,255,255,0.16);
-      backdrop-filter:blur(14px);
-      -webkit-backdrop-filter:blur(14px);
-      border:1px solid rgba(255,255,255,0.25);
-      border-radius:22px;
-      padding:32px;
-      margin-top:24px;
-      box-shadow:0 15px 40px rgba(0,0,0,0.20);
-      transition:transform .35s ease, box-shadow .35s ease;
+      background:#fff;
+      border-radius:24px;
+      padding:28px;
+      box-shadow:0 12px 35px rgba(80,58,52,.08);
+      border:1px solid #f0e6e0;
+      transition:.3s ease;
     }
 
     .card:hover{
       transform:translateY(-6px);
-      box-shadow:0 22px 55px rgba(0,0,0,0.28);
     }
 
-    .card h2{
+    .card h3{
+      font-size:24px;
       margin-bottom:14px;
-      font-size:28px;
+      color:#2f2a28;
+      font-family: Georgia, "Times New Roman", serif;
+      font-weight:500;
     }
 
     .card p,
     .card li{
-      font-size:17px;
-      line-height:1.7;
-    }
-
-    ul{
-      padding-left:22px;
-    }
-
-    .btn-link{
-      text-decoration:none;
-      display:inline-block;
-    }
-
-    button{
-      margin-top:10px;
-      padding:14px 30px;
-      border:none;
-      border-radius:30px;
+      color:#6d625d;
       font-size:16px;
-      cursor:pointer;
-      color:white;
-      background:linear-gradient(45deg,#ff4b6e,#ff7b8f);
-      box-shadow:0 10px 25px rgba(0,0,0,0.25);
-      transition:all .3s ease;
     }
 
-    button:hover{
-      transform:scale(1.06);
-      box-shadow:0 16px 35px rgba(0,0,0,0.35);
+    .card ul{
+      padding-left:20px;
     }
 
-    footer{
+    .card ul li{
+      margin-bottom:10px;
+    }
+
+    .research-card{
+      grid-column:span 2;
+    }
+
+    .footer{
+      background:#2f2a28;
+      color:#f4e9e5;
       text-align:center;
-      padding:30px 20px;
-      margin-top:35px;
-      font-size:15px;
-      opacity:.95;
-      position:relative;
-      z-index:2;
+      padding:26px 20px;
+      font-size:14px;
     }
 
-    .particle{
-      position:absolute;
-      background:white;
-      border-radius:50%;
-      opacity:.45;
-      animation:floatUp linear infinite;
-      pointer-events:none;
+    html{
+      scroll-behavior:smooth;
     }
 
-    @keyframes floatUp{
-      0%{
-        transform:translateY(100vh);
-        opacity:0;
+    @media (max-width: 1024px){
+      .hero{
+        grid-template-columns:1fr;
+        text-align:center;
       }
-      10%{
-        opacity:.45;
+
+      .hero-text p{
+        margin-left:auto;
+        margin-right:auto;
       }
-      100%{
-        transform:translateY(-15vh);
-        opacity:0;
+
+      .hero-buttons{
+        justify-content:center;
+      }
+
+      .floating-tag{
+        left:50%;
+        transform:translateX(-50%);
+        bottom:18px;
+      }
+
+      .grid{
+        grid-template-columns:1fr 1fr;
+      }
+
+      .research-card{
+        grid-column:span 2;
       }
     }
 
     @media (max-width: 768px){
-      header h1{
-        font-size:38px;
+      .nav-container{
+        flex-direction:column;
+        align-items:flex-start;
       }
 
-      header p{
+      .nav-links{
+        gap:16px;
+      }
+
+      .hero{
+        padding-top:40px;
+      }
+
+      .hero-text h1{
+        font-size:42px;
+      }
+
+      .hero-text .script{
+        font-size:36px;
+      }
+
+      .hero-text p{
         font-size:17px;
       }
 
-      .profile-img{
-        width:140px;
-        height:140px;
+      .image-card img{
+        height:420px;
       }
 
-      .card{
-        padding:24px;
+      .grid{
+        grid-template-columns:1fr;
       }
 
-      .card h2{
-        font-size:24px;
+      .research-card{
+        grid-column:span 1;
       }
 
-      .card p,
-      .card li{
-        font-size:16px;
+      .section-title h2{
+        font-size:30px;
       }
     }
   </style>
 </head>
-
 <body>
 
-  <header>
-    <img src="mylyn.jpg" alt="Mylyn Profile" class="profile-img">
-    <h1>Hello, I'm Mylyn 💖</h1>
-    <p>Welcome to my beautiful personal webpage</p>
-  </header>
-
-  <div class="container">
-    <div class="card">
-      <h2>About Me</h2>
-      <p>
-        Hi! My name is Mylyn. This is my personal webpage.
-        I love learning new things, exploring technology,
-        and sharing ideas with others.
-      </p>
-    </div>
-
-    <div class="card">
-      <h2>My Hobbies</h2>
-      <ul>
-        <li>🎧 Listening to music</li>
-        <li>🎬 Watching movies</li>
-        <li>💻 Learning technology</li>
-        <li>✈️ Traveling</li>
-      </ul>
-    </div>
-
-    <div class="card">
-      <h2>My Research Paper</h2>
-      <p>
-        You can read our research study titled
-        <strong>“Effectiveness of Cotton in Water Filter for Improving Tap Water Quality”</strong>.
-        Click the button below to open the PDF.
-      </p>
-      <a href="Concept-Paper-E-Tech.pdf" target="_blank" class="btn-link">
-      <button>View Research Paper 📄</button>
-      </a>
-    </div>
-
-    <div class="card">
-      <h2>Say Hello</h2>
-      <button onclick="hello()">Click Me</button>
-    </div>
+  <div class="top-bar">
+    Welcome to Mylyn's personal webpage ✨
   </div>
 
-  <footer>
-    <p>© 2026 Mylyn's Webpage</p>
+  <nav class="navbar">
+    <div class="nav-container">
+      <div class="brand">MYLYN</div>
+
+      <div class="nav-links">
+        <a href="#home">Home</a>
+        <a href="#about">About Me</a>
+        <a href="#hobbies">Hobbies</a>
+        <a href="#research">Research</a>
+        <a href="#hello">Say Hello</a>
+      </div>
+    </div>
+  </nav>
+
+  <section class="hero" id="home">
+    <div class="hero-text">
+      <small>Personal Website</small>
+      <span class="script">Hey there!</span>
+      <h1>Hi, I'm Mylyn.</h1>
+      <p>
+        I enjoy learning new things, exploring technology, and sharing ideas with others.
+        Welcome to my elegant personal webpage where you can know more about me and view my research paper.
+      </p>
+
+      <div class="hero-buttons">
+        <a href="#about" class="btn btn-primary">Learn More</a>
+        <a href="Concept-Paper-E-Tech.pdf" target="_blank" class="btn btn-secondary">View Research Paper</a>
+      </div>
+    </div>
+
+    <div class="hero-image">
+      <div class="image-card">
+        <img src="mylyn.jpg" alt="Mylyn Profile">
+      </div>
+      <div class="floating-tag">Student • Dreamer • Learner 💖</div>
+    </div>
+  </section>
+
+  <section class="section" id="about">
+    <div class="section-title">
+      <h2>About Me</h2>
+      <p>
+        This page shares a little about who I am, the things I enjoy, and one of our research works.
+      </p>
+    </div>
+
+    <div class="grid">
+      <div class="card">
+        <h3>Who I Am</h3>
+        <p>
+          Hi! My name is Mylyn. I made this webpage to introduce myself in a simple and beautiful way.
+          I love learning, growing, and discovering new ideas that can inspire me in school and in life.
+        </p>
+      </div>
+
+      <div class="card" id="hobbies">
+        <h3>My Hobbies</h3>
+        <ul>
+          <li>🎧 Listening to music</li>
+          <li>🎬 Watching movies</li>
+          <li>💻 Learning technology</li>
+          <li>✈️ Traveling</li>
+        </ul>
+      </div>
+
+      <div class="card research-card" id="research">
+        <h3>My Research Paper</h3>
+        <p style="margin-bottom:18px;">
+          You can read our research study titled
+          <strong>“Effectiveness of Cotton in Water Filter for Improving Tap Water Quality”</strong>.
+        </p>
+        <a href="Concept-Paper-E-Tech.pdf" target="_blank" class="btn btn-primary">Open Research Paper 📄</a>
+      </div>
+
+      <div class="card" id="hello">
+        <h3>Say Hello</h3>
+        <p style="margin-bottom:18px;">
+          Thank you for visiting my webpage. Click the button below for a warm greeting.
+        </p>
+        <button class="btn btn-primary" onclick="hello()">Click Me</button>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    © 2026 Mylyn's Webpage
   </footer>
 
   <script>
-    function hello(){
+    function hello() {
       alert("Hello! Thanks for visiting Mylyn's page 💖");
-    }
-
-    for(let i = 0; i < 25; i++){
-      const particle = document.createElement("div");
-      particle.className = "particle";
-
-      const size = Math.random() * 6 + 3;
-      particle.style.width = size + "px";
-      particle.style.height = size + "px";
-      particle.style.left = Math.random() * 100 + "vw";
-      particle.style.top = Math.random() * 100 + "vh";
-      particle.style.animationDuration = (Math.random() * 10 + 10) + "s";
-      particle.style.animationDelay = (Math.random() * 8) + "s";
-
-      document.body.appendChild(particle);
     }
   </script>
 
