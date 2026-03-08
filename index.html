@@ -239,22 +239,7 @@
     © 2026 Mylyn's Webpage
   </footer>
 
-  <script>
-    document.querySelectorAll("a").forEach(link => {
-      link.addEventListener("click", function(e) {
-        const target = this.getAttribute("href");
 
-        if (target && target.includes(".html")) {
-          e.preventDefault();
-          document.body.classList.add("page-turn");
-
-          setTimeout(() => {
-            window.location.href = target;
-          }, 700);
-        }
-      });
-    });
-  </script>
 
 </body>
 </html>
