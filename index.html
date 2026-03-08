@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Mylyn | Home</title>
+  <title>Mylyn Jane Legarte | Webpage</title>
 
   <style>
     *{
@@ -12,9 +12,27 @@
       box-sizing:border-box;
     }
 
+    html{
+      scroll-behavior:smooth;
+    }
+
+    body{
+      font-family:"Segoe UI", Arial, sans-serif;
+      background:#f9f4f2;
+      color:#2f2a28;
+      line-height:1.7;
+      overflow-x:hidden;
+      animation:pageFadeIn .8s ease;
+    }
+
     a{
       text-decoration:none;
       color:inherit;
+    }
+
+    img{
+      display:block;
+      max-width:100%;
     }
 
     .top-bar{
@@ -63,8 +81,7 @@
       transition:.3s ease;
     }
 
-    .nav-links a:hover,
-    .nav-links a.active{
+    .nav-links a:hover{
       color:#d77d8e;
       font-weight:600;
     }
@@ -77,7 +94,8 @@
       grid-template-columns:1.1fr 0.9fr;
       gap:40px;
       align-items:center;
-      min-height:80vh;
+      min-height:85vh;
+      animation:contentFadeIn 1s ease;
     }
 
     .hero-text small{
@@ -100,16 +118,17 @@
 
     .hero-text .script{
       display:block;
-      font-size:54px;
+      font-size:52px;
       color:#c78d98;
       font-style:italic;
-      margin-bottom:14px;
+      margin-bottom:12px;
     }
 
     .hero-text p{
-      max-width:520px;
+      max-width:560px;
       font-size:20px;
       color:#5e5450;
+      margin-bottom:22px;
     }
 
     .hero-image{
@@ -133,7 +152,6 @@
       height:560px;
       object-fit:cover;
       border-radius:22px;
-      display:block;
     }
 
     .floating-tag{
@@ -148,12 +166,164 @@
       font-size:14px;
     }
 
+    .btn{
+      display:inline-block;
+      padding:14px 26px;
+      border:none;
+      border-radius:999px;
+      font-size:15px;
+      cursor:pointer;
+      transition:.3s ease;
+      background:#d77d8e;
+      color:#fff;
+      box-shadow:0 10px 25px rgba(215,125,142,.25);
+    }
+
+    .btn:hover{
+      transform:translateY(-2px);
+      background:#cb6f81;
+    }
+
+    .section{
+      max-width:1200px;
+      margin:auto;
+      padding:20px 24px 90px;
+      animation:contentFadeIn 1s ease;
+    }
+
+    .section-title{
+      text-align:center;
+      margin-bottom:34px;
+    }
+
+    .section-title h2{
+      font-size:40px;
+      font-family:Georgia, "Times New Roman", serif;
+      font-weight:500;
+      margin-bottom:10px;
+    }
+
+    .section-title p{
+      color:#7b6d67;
+      max-width:760px;
+      margin:auto;
+      font-size:17px;
+    }
+
+    .about-card,
+    .concept-paper-box,
+    .contact-card{
+      background:#fff;
+      border-radius:28px;
+      padding:30px;
+      box-shadow:0 12px 35px rgba(80,58,52,.08);
+      border:1px solid #f0e6e0;
+    }
+
+    .about-card p,
+    .concept-paper-box p,
+    .contact-card p{
+      color:#6d625d;
+      font-size:17px;
+      margin-bottom:14px;
+      text-align:justify;
+    }
+
+    .outputs-grid{
+      display:grid;
+      grid-template-columns:repeat(3, 1fr);
+      gap:24px;
+    }
+
+    .output-card{
+      background:#fff;
+      border-radius:24px;
+      overflow:hidden;
+      box-shadow:0 12px 35px rgba(80,58,52,.08);
+      border:1px solid #f0e6e0;
+      transition:.3s ease;
+    }
+
+    .output-card:hover{
+      transform:translateY(-6px);
+    }
+
+    .output-card img{
+      width:100%;
+      height:420px;
+      object-fit:cover;
+    }
+
+    .output-card .caption{
+      padding:16px 18px;
+      color:#6d625d;
+      font-size:15px;
+      text-align:center;
+    }
+
+    .concept-paper-box h3{
+      font-size:24px;
+      margin:24px 0 12px;
+      font-family:Georgia, "Times New Roman", serif;
+      font-weight:600;
+      color:#2f2a28;
+    }
+
+    .concept-paper-box h3:first-child{
+      margin-top:0;
+    }
+
+    .paper-main-title{
+      text-align:center;
+      font-size:30px;
+      line-height:1.35;
+      margin-bottom:22px;
+      font-family:Georgia, "Times New Roman", serif;
+      font-weight:600;
+      color:#2f2a28;
+    }
+
+    .concept-paper-box ul{
+      padding-left:22px;
+      margin:10px 0 18px;
+      color:#6d625d;
+    }
+
+    .concept-paper-box li{
+      margin-bottom:8px;
+    }
+
+    .contact-card{
+      text-align:center;
+    }
+
+    .contact-card p{
+      text-align:center;
+    }
+
     .footer{
       background:#2f2a28;
       color:#f4e9e5;
       text-align:center;
       padding:26px 20px;
       font-size:14px;
+      margin-top:20px;
+    }
+
+    @keyframes pageFadeIn{
+      from{opacity:0;}
+      to{opacity:1;}
+    }
+
+    @keyframes contentFadeIn{
+      from{
+        opacity:0;
+        transform:translateY(28px);
+      }
+      to{
+        opacity:1;
+        transform:translateY(0);
+      }
     }
 
     @media (max-width:1024px){
@@ -172,15 +342,23 @@
         transform:translateX(-50%);
         bottom:18px;
       }
+
+      .outputs-grid{
+        grid-template-columns:repeat(2, 1fr);
+      }
     }
 
     @media (max-width:768px){
+      .hero{
+        padding:50px 20px 70px;
+      }
+
       .hero-text h1{
         font-size:42px;
       }
 
       .hero-text .script{
-        font-size:36px;
+        font-size:34px;
       }
 
       .hero-text p{
@@ -190,13 +368,29 @@
       .image-card img{
         height:420px;
       }
+
+      .section-title h2{
+        font-size:32px;
+      }
+
+      .outputs-grid{
+        grid-template-columns:1fr;
+      }
+
+      .output-card img{
+        height:360px;
+      }
+
+      .paper-main-title{
+        font-size:24px;
+      }
     }
   </style>
 </head>
 <body>
 
   <div class="top-bar">
-    Welcome to Mylyn's personal webpage ✨
+    Welcome to Mylyn Jane Legarte's webpage ✨
   </div>
 
   <nav class="navbar">
@@ -204,30 +398,31 @@
       <div class="brand">MYLYN</div>
 
       <div class="nav-links">
-        <a href="index.html" class="active">Home</a>
-        <a href="about.html">About Me</a>
-        <a href="hobbies.html">Hobbies</a>
-        <a href="concept-paper.html">Concept Paper</a>
-        <a href="contact.html">Contact</a>
+        <a href="#home">Home</a>
+        <a href="#about">About Me</a>
+        <a href="#outputs">Outputs</a>
+        <a href="#concept-paper">Concept Paper</a>
+        <a href="#contact">Contact</a>
       </div>
     </div>
   </nav>
 
-  <section class="hero">
+  <section class="hero" id="home">
     <div class="hero-text">
-      <small>Personal Website</small>
+      <small>Personal Webpage</small>
       <span class="script">Hey there!</span>
-      <h1>Hi, I'm Mylyn.</h1>
+      <h1>Hi, I'm Mylyn Jane Legarte.</h1>
       <p>
-        Welcome to my elegant personal webpage.
-        Explore my profile, hobbies, and our concept paper
-        about improving tap water quality using cotton filtration.
+        Welcome to my personal webpage. This page shares a little about who I am,
+        some of my outputs, and our concept paper about improving tap water quality
+        using cotton filtration.
       </p>
+      <a href="#about" class="btn">Learn More</a>
     </div>
 
     <div class="hero-image">
       <div class="image-card">
-        <img src="mylyn.jpg" alt="Mylyn Profile">
+        <img src="mylyn.jpg" alt="Mylyn Jane Legarte">
       </div>
       <div class="floating-tag">
         Student • Dreamer • Learner 💖
@@ -235,11 +430,149 @@
     </div>
   </section>
 
+  <section class="section" id="about">
+    <div class="section-title">
+      <h2>About Me</h2>
+      <p>A short introduction about myself and what I value.</p>
+    </div>
+
+    <div class="about-card">
+      <p>
+        Hi, I’m Mylyn Jane Legarte.
+      </p>
+      <p>
+        I am someone who enjoys learning new things and exploring different ideas.
+        I believe that growth comes from curiosity, hard work, and continuous learning.
+        I am passionate about improving my skills and creating meaningful experiences
+        through what I do.
+      </p>
+    </div>
+  </section>
+
+  <section class="section" id="outputs">
+    <div class="section-title">
+      <h2>Outputs</h2>
+      <p>These are some of the works, posters, and creative outputs I prepared.</p>
+    </div>
+
+    <div class="outputs-grid">
+      <div class="output-card">
+        <img src="output1.jpg" alt="Output 1">
+        <div class="caption">Feature of Web 2.0 output</div>
+      </div>
+
+      <div class="output-card">
+        <img src="output2.jpg" alt="Output 2">
+        <div class="caption">Types of online platforms output</div>
+      </div>
+
+      <div class="output-card">
+        <img src="output3.jpg" alt="Output 3">
+        <div class="caption">STEM education poster output</div>
+      </div>
+
+      <div class="output-card">
+        <img src="output4.jpg" alt="Output 4">
+        <div class="caption">Creative collage output 1</div>
+      </div>
+
+      <div class="output-card">
+        <img src="output5.jpg" alt="Output 5">
+        <div class="caption">Creative collage output 2</div>
+      </div>
+
+      <div class="output-card">
+        <img src="output6.jpg" alt="Output 6">
+        <div class="caption">Creative collage output 3</div>
+      </div>
+
+      <div class="output-card">
+        <img src="output7.jpg" alt="Output 7">
+        <div class="caption">Creative collage output 4</div>
+      </div>
+
+      <div class="output-card">
+        <img src="output8.jpg" alt="Output 8">
+        <div class="caption">Creative collage output 5</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="concept-paper">
+    <div class="section-title">
+      <h2>Concept Paper</h2>
+      <p>Our study about the effectiveness of cotton in water filtration.</p>
+    </div>
+
+    <div class="concept-paper-box">
+      <div class="paper-main-title">
+        EFFECTIVENESS OF COTTON IN WATER FILTER<br>
+        FOR IMPROVING TAPWATER QUALITY
+      </div>
+
+      <h3>Introduction</h3>
+      <p>
+        Access to safe and clean drinking water remains a major global concern, as millions of people still lack reliable access to properly treated water. According to the World Health Organization, unsafe water contributes significantly to the spread of waterborne diseases such as cholera, dysentery, and typhoid. Even in areas with developed water systems, tap water may still contain residual contaminants due to aging pipelines, environmental pollution, and inadequate treatment processes. These issues highlight the continuous need for affordable and effective household water treatment methods.
+      </p>
+      <p>
+        In response to this concern, the present study focuses on exploring cotton as a potential filtration material for improving tap water quality. While commercial filters often use advanced materials like activated carbon, ceramics, and membrane systems, these options can be costly for some households. Cotton, being widely available and affordable, may offer a practical alternative. This research investigates whether the cotton in water filter can improve tap water quality by measuring changes in pH level and total dissolved solids (TDS) before and after filtration.
+      </p>
+
+      <h3>Purpose of the Study</h3>
+      <p>
+        The primary purpose of this study is to determine the effectiveness of cotton as a filtration medium in improving the quality of tap water. Specifically, it aims to measure the pH level and total dissolved solids (TDS) of tap water before and after passing through different amounts of cotton (20 g and 40 g). Through this comparison, the study seeks to identify whether cotton can significantly enhance water quality.
+      </p>
+      <p>
+        Additionally, the research intends to contribute to the broader goal of promoting accessible and low-cost water treatment solutions. This aligns with United Nations Sustainable Development Goal 6 (Clean Water and Sanitation), which emphasizes ensuring availability and sustainable management of water for all. On a national level, the study also supports the objectives of Republic Act No. 9275, which promotes the protection and preservation of water quality in the Philippines. By evaluating a simple and affordable material like cotton, the study aims to provide practical knowledge that households and communities can apply.
+      </p>
+
+      <h3>Description</h3>
+      <p>
+        The project involves designing and constructing a simple cotton-based water filter using 100% pure cotton as the primary filtering material. The experiment will collect tap water samples from Malbog, Alegria, Cebu, and test their pH level and TDS before filtration. Afterward, the water will be filtered using two different amounts of cotton (20 grams and 40 grams), and the same parameters will be measured again for comparison.
+      </p>
+      <p>
+        The experimental design follows a quantitative approach, focusing on measurable data to determine the effectiveness of the cotton filter. The independent variable in the study is the amount of cotton used, while the dependent variables are the pH level and total dissolved solids of the tap water. The results will be analyzed to determine if there is a significant difference between pre-filtration and post-filtration measurements. This structured approach ensures that conclusions are based on objective data rather than assumptions.
+      </p>
+
+      <h3>Support</h3>
+      <p>
+        To successfully conduct this study, several materials and tools are required. These include 100% pure cotton, plastic bottles or containers for the filter structure, a pH meter or pH testing kit, a TDS meter, and sample containers for water collection. These materials are generally accessible and affordable, making the project feasible for student researchers.
+      </p>
+
+      <ul>
+        <li>100% Pure Cotton (HAPEE brand) – ₱1,000</li>
+        <li>pH &amp; TDS Tester – ₱800</li>
+        <li>Plastic Bottles/Containers &amp; Miscellaneous – ₱300</li>
+        <li><strong>Estimated Total Budget: ₱2,100</strong></li>
+      </ul>
+
+      <p>
+        The proposed budget reflects the study’s focus on affordability and practicality. Most materials are reusable for future experiments, reducing long-term costs. By maintaining a low budget, the study demonstrates that water quality improvement methods do not always require expensive technology. Instead, simple and accessible materials like cotton may provide a helpful solution, especially for communities with limited resources.
+      </p>
+    </div>
+  </section>
+
+  <section class="section" id="contact">
+    <div class="section-title">
+      <h2>Contact</h2>
+      <p>Thank you for visiting my webpage.</p>
+    </div>
+
+    <div class="contact-card">
+      <p>I’m glad you visited my webpage. Click the button below for a warm greeting.</p>
+      <button class="btn" onclick="hello()">Say Hello 💖</button>
+    </div>
+  </section>
+
   <footer class="footer">
-    © 2026 Mylyn's Webpage
+    © 2026 Mylyn Jane Legarte
   </footer>
 
-
+  <script>
+    function hello() {
+      alert("Hello! Thanks for visiting Mylyn's webpage 💖");
+    }
+  </script>
 
 </body>
 </html>
